@@ -3,18 +3,17 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import HelloComponent from './component/HelloComponent';
+import StateFullComponent from './container/StateFullComponent';
 
-const HelloWorld = () => {
-  return <p>Hello World</p>;
-}
+// StateFull Component, meggunakan class
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* <App /> */}
-    <HelloWorld />
-    {/* <br /> */}
-    <p>Hello World from ReactDOM</p>
+    <HelloComponent />
+    <StateFullComponent />
   </React.StrictMode>
 );
 

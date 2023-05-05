@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import YouTubeComp from "../../component/YouTubeComp/YouTubeComp";
 import Product from "../Product/Product";
+import LifeCycleComp from "../LifeCycleComp/LifeCycleComp";
 class Home extends Component {
   render() {
     return (
@@ -13,9 +14,12 @@ class Home extends Component {
         <YouTubeComp time="10.51" title="Bagian - 4" desc="300x ditonton . 5 hari yang lalu" />
         <YouTubeComp time="08.20" title="Bagian - 5" desc="1x ditonton . 4 hari yang lalu" />
         <YouTubeComp /> */}
-        <p>Counter</p>
+        {/* <p>Counter</p>
         <hr />
-        <Product />
+        <Product /> */}
+        {/* <p>LifeCycle Component</p>
+        <hr />
+        <LifeCycleComp /> */}
       </>
     )
   }

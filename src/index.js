@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import Home from './container/Home/Home';
-import Product from './container/Product/Product';
+
+import { BlogPost } from './container/BlogPost/BlogPost';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Home />
+    <BlogPost />
   </React.StrictMode>
 );
 

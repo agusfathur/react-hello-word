@@ -12,8 +12,9 @@ export const BlogPost = () => {
     body: '',
     userId: 1
   })
+  const [isUpdate, setIsUpdate] = useState(false);
 
-  const getPost = async () => {
+  const getPost = () => {
     axios.get('http://localhost:3004/posts?_sort=id&_order=desc')
       .then((results) => setPosts(results.data));
   }
@@ -21,24 +22,54 @@ export const BlogPost = () => {
   const postData = () => {
     axios.post('http://localhost:3004/posts', formData)
       .then((res) => console.log(res))
-      .catch((err) => console.log(err))
+      .catch((err) => console.log(err));
+    setFormData({
+      id: 1,
+      title: '',
+      body: '',
+      userId: 1
+    })
+  }
+
+  const putData = (data) => {
+    axios.put(`http://localhost:3004/posts/${data}`, formData)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+
+    setIsUpdate(!isUpdate)
+    setFormData({
+      id: 1,
+      title: '',
+      body: '',
+      userId: 1
+    })
   }
   const handleRemove = (data) => {
     axios.delete(`http://localhost:3004/posts/${data}`).then(getPost())
   }
 
+  const handleUpdate = (data) => {
+    setFormData(data)
+    setIsUpdate(!isUpdate);
+  }
+
   const handleForChange = (event) => {
-    const timeStamp = new Date().getTime();
     let setFormDataNew = { ...formData };
-    setFormDataNew['id'] = timeStamp;
+    if (!isUpdate) {
+      const timeStamp = new Date().getTime();
+      setFormDataNew['id'] = timeStamp;
+    }
     setFormDataNew[event.target.name] = event.target.value;
     setFormData(setFormDataNew)
-
   }
 
   const handleSubmit = () => {
-    postData();
-    getPost()
+    if (isUpdate) {
+      putData(formData.id)
+    } else {
+      postData();
+    }
+    getPost();
   }
 
   useEffect(() => {
@@ -49,14 +80,14 @@ export const BlogPost = () => {
       <h3 className="section-title">Blog Post</h3>
       <div className="form-add-post">
         <label htmlFor="title">Ttile</label>
-        <input type="text" name="title" placeholder="add title" id="title" onChange={handleForChange} />
+        <input type="text" name="title" placeholder="add title" id="title" value={formData.title} onChange={handleForChange} />
         <label htmlFor="body">Blog Content</label>
-        <textarea name="body" cols="30" rows="10" id="body" onChange={handleForChange} ></textarea>
+        <textarea name="body" cols="30" rows="10" id="body" value={formData.body} onChange={handleForChange} ></textarea>
         <button className="btn-submit" onClick={handleSubmit}>Simpan</button>
       </div>
       <div className="Blog">
         {posts.map((post) => {
-          return <Post key={post.id} data={post} remove={handleRemove} />
+          return <Post key={post.id} data={post} remove={handleRemove} update={handleUpdate} />
         })}
       </div>
     </>

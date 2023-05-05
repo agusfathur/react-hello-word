@@ -572,8 +572,26 @@
     },
     {
       "id": 1683297371031,
-      "title": "ini tittle pertama",
+      "title": "ini tittle pertama UPDATE",
       "body": "ini blog kontent pertama",
+      "userId": 1
+    },
+    {
+      "id": 1683302701761,
+      "title": "tutorial 1 ReactJS",
+      "body": "cupiditate quo est a modi nesciunt soluta ipsa voluptas error itaque dicta in autem qui minus magnam et distinctio eum accusamus ratione error aut\nPUT",
+      "userId": 1
+    },
+    {
+      "id": 1683302751793,
+      "title": "tutorial 2 ReactJS",
+      "body": "cupiditate quo est a modi nesciunt soluta ipsa voluptas error itaque dicta in autem qui minus magnam et distinctio eum accusamus ratione error aut",
+      "userId": 1
+    },
+    {
+      "id": 1683302764491,
+      "title": "tutorial 3 ReactJS",
+      "body": "cupiditate quo est a modi nesciunt soluta ipsa voluptas error itaque dicta in autem qui minus magnam et distinctio eum accusamus ratione error aut",
       "userId": 1
     }
   ]

@@ -4,6 +4,7 @@ export const Post = (props) => {
 
   const { title, body, id } = props.data;
   const { remove } = props;
+  const { update } = props;
 
   return (
     <>
@@ -15,12 +16,13 @@ export const Post = (props) => {
           <div className="Title">
             <h3>{title ?? "Title"}</h3>
             <p>{body ?? "Body paragraph"}</p>
+            <button className="Update" onClick={() => update(props.data)}>Update</button>
             <button className="Remove" onClick={() => {
               if (window.confirm('Delete this post')) remove(id)
             }}>Remove</button>
           </div>
         </div>
-      </div>
+      </div >
     </>
   )
 }

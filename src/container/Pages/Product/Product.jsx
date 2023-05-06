@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import './Product.css';
 import logo from './shopping-cart.png';
-import CardProduct from "../CardProduct/CardProduct";
+import CardProduct from './CardProduct/CardProduct';
 class Product extends Component {
   state = {
     order: 4

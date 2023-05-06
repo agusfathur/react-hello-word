@@ -1,5 +1,5 @@
 import axios from "axios"
-import { Post } from "../../component/Post/Post"
+import { Post } from "../../../component/Post/Post"
 import { useEffect, useState } from "react"
 import './BlogPost.css'
 

@@ -3,7 +3,7 @@ import { Post } from "../../component/Post/Post"
 import { useEffect, useState } from "react"
 import './BlogPost.css'
 
-export const BlogPost = () => {
+const BlogPost = () => {
 
   const [posts, setPosts] = useState([])
   const [formData, setFormData] = useState({
@@ -14,9 +14,12 @@ export const BlogPost = () => {
   })
   const [isUpdate, setIsUpdate] = useState(false);
 
-  const getPost = () => {
-    axios.get('http://localhost:3004/posts?_sort=id&_order=desc')
-      .then((results) => setPosts(results.data));
+  const getPost = async () => {
+    // axios.get('http://localhost:3004/posts?_sort=id&_order=desc')
+    //   .then((results) => setPosts(results.data));
+    const res = await axios.get('http://localhost:3004/posts?_sort=id&_order=desc')
+    setPosts(res.data)
+
   }
 
   const postData = () => {
@@ -77,9 +80,11 @@ export const BlogPost = () => {
   }, [])
   return (
     <>
-      <h3 className="section-title">Blog Post</h3>
+      <p>Halaman Blog Posts</p>
+      <hr />
+      <h2 className="section-title">Blog Post</h2>
       <div className="form-add-post">
-        <label htmlFor="title">Ttile</label>
+        <label htmlFor="title">Title</label>
         <input type="text" name="title" placeholder="add title" id="title" value={formData.title} onChange={handleForChange} />
         <label htmlFor="body">Blog Content</label>
         <textarea name="body" cols="30" rows="10" id="body" value={formData.body} onChange={handleForChange} ></textarea>
@@ -93,3 +98,5 @@ export const BlogPost = () => {
     </>
   )
 }
+
+export default BlogPost;

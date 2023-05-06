@@ -1,28 +1,28 @@
-import React, { Component } from "react";
-import YouTubeComp from "../../component/YouTubeComp/YouTubeComp";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Product from "../Product/Product";
 import LifeCycleComp from "../LifeCycleComp/LifeCycleComp";
-class Home extends Component {
-  render() {
-    return (
-      <>
-        {/* <p>Youtube Component</p>
-        <hr />
-        <YouTubeComp time="07.11" title="Bagian - 1" desc="200x ditonton . 10 hari yang lalu" />
-        <YouTubeComp time="09.11" title="Bagian - 2" desc="10x ditonton . 9 hari yang lalu" />
-        <YouTubeComp time="11.11" title="Bagian - 3" desc="100x ditonton . 7 hari yang lalu" />
-        <YouTubeComp time="10.51" title="Bagian - 4" desc="300x ditonton . 5 hari yang lalu" />
-        <YouTubeComp time="08.20" title="Bagian - 5" desc="1x ditonton . 4 hari yang lalu" />
-        <YouTubeComp /> */}
-        {/* <p>Counter</p>
-        <hr />
-        <Product /> */}
-        {/* <p>LifeCycle Component</p>
-        <hr />
-        <LifeCycleComp /> */}
-      </>
-    )
-  }
+import BlogPost from "../BlogPost/BlogPost";
+import './Home.css';
+
+const Home = () => {
+  return (
+    <>
+      <nav>
+        <div className='Navigation'>
+          <a href="/">Blog Post</a>
+          <a href="/product">Product</a>
+          <a href="/lifecycle">LifeCycle</a>
+        </div>
+      </nav>
+      <Router>
+        <Routes>
+          <Route path="/" exact element={<BlogPost />} />
+          <Route path="/product" element={<Product />} />
+          <Route path="/lifecycle" element={<LifeCycleComp />} />
+        </Routes>
+      </Router>
+    </>
+  )
 }
 
 export default Home;

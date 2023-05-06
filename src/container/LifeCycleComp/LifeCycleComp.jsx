@@ -1,10 +1,13 @@
-import React, { Component } from "react";
 import './LifeCycleComp.css';
 
-class LifeCycleComp extends Component {
-  render() {
-    return <button className="btn">Component Button</button>
-  }
+const LifeCycleComp = () => {
+  return (
+    <>
+      <p>Halaman LifeCycle Component</p>
+      <hr />
+      <button className="btn">Component Button</button>
+    </>
+  )
 }
 
 export default LifeCycleComp;

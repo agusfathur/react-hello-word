@@ -5,6 +5,7 @@ import LifeCycleComp from "../Pages/LifeCycleComp/LifeCycleComp";
 import BlogPost from "../Pages/BlogPost/BlogPost";
 import Product from '../Pages/Product/Product';
 import YoutubeCompPage from '../Pages/YoutubeCompPage/YoutubeCompPage';
+import DetailPost from '../Pages/BlogPost/DetailPost/DetailPost';
 // style
 import './Home.css';
 
@@ -22,6 +23,7 @@ const Home = () => {
       <Router>
         <Routes>
           <Route path="/" exact element={<BlogPost />} />
+          <Route path="/detail-post/:postID" exact element={<DetailPost />} />
           <Route path="/product" element={<Product />} />
           <Route path="/lifecycle" element={<LifeCycleComp />} />
           <Route path="/youtube-component" element={<YoutubeCompPage />} />

@@ -3,8 +3,7 @@ import './Post.css';
 export const Post = (props) => {
 
   const { title, body, id } = props.data;
-  const { remove } = props;
-  const { update } = props;
+  const { remove, update, goDetail } = props;
 
   return (
     <>
@@ -14,7 +13,7 @@ export const Post = (props) => {
         </div>
         <div className="Post">
           <div className="Title">
-            <h3>{title ?? "Title"}</h3>
+            <h3 onClick={() => goDetail(id)} className='title' >{title ?? "Title"}</h3>
             <p>{body ?? "Body paragraph"}</p>
             <button className="Update" onClick={() => update(props.data)}>Update</button>
             <button className="Remove" onClick={() => {

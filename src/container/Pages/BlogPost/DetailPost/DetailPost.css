@@ -1,0 +1,13 @@
+.container {
+  margin-left: 20px ;
+}
+.detail-title  span{
+  color: rgb(4, 93, 227);
+  font-size: 24px;
+  text-transform: capitalize;
+}
+
+.detail-body {
+  font-size: 16px;
+  color: #607D88;
+}

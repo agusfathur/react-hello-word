@@ -59,3 +59,8 @@ p{
 .Update:hover{
   background-color: rgb(5, 91, 184);
 }
+
+.title:hover{
+  cursor: pointer;
+  color:rgb(10, 125, 248) ;
+}

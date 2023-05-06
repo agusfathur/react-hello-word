@@ -2,9 +2,10 @@ import axios from "axios"
 import { Post } from "../../../component/Post/Post"
 import { useEffect, useState } from "react"
 import './BlogPost.css'
+import { useNavigate } from "react-router"
 
 const BlogPost = () => {
-
+  const navigate = useNavigate();
   const [posts, setPosts] = useState([])
   const [formData, setFormData] = useState({
     id: 1,
@@ -75,6 +76,14 @@ const BlogPost = () => {
     getPost();
   }
 
+  const handleDetail = (id) => {
+    navigate(`/detail-post/${id}`, {
+      state: {
+        postID: id
+      }
+    })
+  }
+
   useEffect(() => {
     getPost()
   }, [])
@@ -92,7 +101,7 @@ const BlogPost = () => {
       </div>
       <div className="Blog">
         {posts.map((post) => {
-          return <Post key={post.id} data={post} remove={handleRemove} update={handleUpdate} />
+          return <Post key={post.id} data={post} remove={handleRemove} update={handleUpdate} goDetail={handleDetail} />
         })}
       </div>
     </>

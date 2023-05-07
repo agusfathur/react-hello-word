@@ -3,11 +3,27 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Home from './container/Home/Home';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+
+const globalState = {
+  totalOrder: 0
+}
+
+// Reducer
+const rootReducer = (state = globalState, action) => {
+  return state;
+}
+
+// Store
+const storeRedux = createStore(rootReducer);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Home />
+    <Provider store={storeRedux} >
+      <Home />
+    </Provider>
   </React.StrictMode>
 );
 

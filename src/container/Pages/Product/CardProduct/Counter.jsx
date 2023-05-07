@@ -1,9 +1,10 @@
 import { Component } from "react";
+import { connect } from "react-redux";
 
 class Counter extends Component {
-  state = {
-    order: 4
-  }
+  // state = {
+  //   order: 4
+  // }
 
   handleCounterChange = (newValue) => {
     this.props.onCounterChange(newValue)
@@ -33,7 +34,7 @@ class Counter extends Component {
     return (
       <div className="counter">
         <button className="minus" onClick={this.handleMinus}>-</button>
-        <input type="text" value={this.state.order} />
+        <input type="text" value={this.props.order} />
         <button className="plus" onClick={this.handlePlus}>+</button>
       </div>
     )
@@ -41,4 +42,10 @@ class Counter extends Component {
 }
 
 
-export default Counter;
+const mapStateToProps = (state) => {
+  return {
+    order: state.totalOrder
+  }
+}
+
+export default connect(mapStateToProps)(Counter);

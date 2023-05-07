@@ -6,15 +6,34 @@ const initialState = {
   age: 17
 }
 
-// Reducer --setter
+// Reducer --function yang bisa merubah value store
 const rootReducer = (state = initialState, action) => {
-  return state;
+  switch (action.type) {
+    case 'ADD_AGE':
+      return {
+        ...state,
+        age: state.age + 1
+      }
+    case 'CHANGE_VALUE':
+      return {
+        ...state,
+        value: state.value + action.newValue
+      }
+    default:
+      return state;
+  }
 } // wadah besar untuk menyimpan object2
-// Store --getter
 
+// Store --wadah
 const store = createStore(rootReducer);
 console.log(store.getState());
 
-// Dispathing Action --pemenggilan Reducer
+// Subcription --terpanggil jika ada perubahan di store
+store.subscribe(() => console.log('store change:', store.getState()))
 
-// Subcription --pemanggilan store yang diperlukan
+// Dispathing Action --pemenggilan Reducer
+// dispatch : function yang hanya mengisi value dari action pada reducer,
+// dispatch : isi dengan dispatch({ type: value })
+store.dispatch({ type: 'ADD_AGE' })
+store.dispatch({ type: 'CHANGE_VALUE', newValue: 12 })
+console.log(store.getState());

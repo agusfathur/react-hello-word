@@ -1,35 +1,9 @@
 import React, { Component } from "react";
+import Counter from "./Counter";
 
 
 class CardProduct extends Component {
-  state = {
-    order: 4
-  }
 
-  handleCounterChange = (newValue) => {
-    this.props.onCounterChange(newValue)
-  }
-
-  handlePlus = () => {
-    this.setState({
-      order: this.state.order + 1
-    }, () => {
-      // lakukan function ini ketika value telah berubah
-      this.handleCounterChange(this.state.order)
-    });
-
-  }
-
-  handleMinus = () => {
-    if (this.state.order > 0) {
-      this.setState({
-        order: this.state.order - 1
-      }, () => {
-        // lakukan function ini ketika value telah berubah
-        this.handleCounterChange(this.state.order)
-      })
-    }
-  }
   render() {
     return (
       <div className="card">
@@ -37,11 +11,7 @@ class CardProduct extends Component {
           <img src="https://source.unsplash.com/480x500?laptop" alt="" />
           <p className="product-title">Laptop Gaming RGB</p>
           <p className="product-price">Rp. 400.000</p>
-          <div className="counter">
-            <button className="minus" onClick={this.handleMinus}>-</button>
-            <input type="text" value={this.state.order} />
-            <button className="plus" onClick={this.handlePlus}>+</button>
-          </div>
+          <Counter onCounterChange={(value) => this.props.onCounterChange(value)} />
         </div>
       </div>
     )

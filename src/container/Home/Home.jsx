@@ -23,7 +23,7 @@ const Home = () => {
       <Router>
         <Routes>
           <Route path="/" exact element={<BlogPost />} />
-          <Route path="/detail-post/:postID" exact element={<DetailPost />} />
+          <Route path="/detail-post/:id" exact element={<DetailPost />} />
           <Route path="/product" element={<Product />} />
           <Route path="/lifecycle" element={<LifeCycleComp />} />
           <Route path="/youtube-component" element={<YoutubeCompPage />} />

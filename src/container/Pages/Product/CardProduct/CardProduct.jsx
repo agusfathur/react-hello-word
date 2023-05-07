@@ -11,7 +11,7 @@ class CardProduct extends Component {
           <img src="https://source.unsplash.com/480x500?laptop" alt="" />
           <p className="product-title">Laptop Gaming RGB</p>
           <p className="product-price">Rp. 400.000</p>
-          <Counter onCounterChange={(value) => this.props.onCounterChange(value)} />
+          <Counter />
         </div>
       </div>
     )

@@ -1,13 +1,20 @@
+import { connect } from 'react-redux';
 import './LifeCycleComp.css';
 
-const LifeCycleComp = () => {
+const LifeCycleComp = (props) => {
   return (
     <>
       <p>Halaman LifeCycle Component</p>
       <hr />
       <button className="btn">Component Button</button>
+      <hr />
+      <p>Total Oder : {props.order} </p>
     </>
   )
 }
-
-export default LifeCycleComp;
+const mapStateToProps = (state) => {
+  return {
+    order: state.totalOrder
+  }
+}
+export default connect(mapStateToProps)(LifeCycleComp);

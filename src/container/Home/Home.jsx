@@ -1,5 +1,5 @@
 // libraries
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 // pages
 import LifeCycleComp from "../Pages/LifeCycleComp/LifeCycleComp";
 import BlogPost from "../Pages/BlogPost/BlogPost";
@@ -12,15 +12,17 @@ import './Home.css';
 const Home = () => {
   return (
     <>
-      <nav>
-        <div className='Navigation'>
-          <a href="/">Blog Post</a>
-          <a href="/product">Product</a>
-          <a href="/lifecycle">LifeCycle</a>
-          <a href="/youtube-component">Youtube</a>
-        </div>
-      </nav>
       <Router>
+
+        <nav>
+          <div className='Navigation'>
+            <Link to="/" >Blog Post</Link>
+            <Link to="/product">Product</Link>
+            <Link to="/lifecycle">LifeCycle</Link>
+            <Link to="/youtube-component">Youtube</Link>
+          </div>
+        </nav>
+
         <Routes>
           <Route path="/" exact element={<BlogPost />} />
           <Route path="/detail-post/:id" exact element={<DetailPost />} />

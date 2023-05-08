@@ -1,20 +1,19 @@
-import { connect } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import './LifeCycleComp.css';
 
 const LifeCycleComp = (props) => {
+  // const reduxState = useSelector(state => state);
   return (
     <>
       <p>Halaman LifeCycle Component</p>
       <hr />
       <button className="btn">Component Button</button>
       <hr />
-      <p>Total Oder : {props.order} </p>
+      {/* Redux State */}
+      {/* <p>Total Oder : {reduxState.totalOrder} </p> */}
+      <p>Total Oder : null </p>
     </>
   )
 }
-const mapStateToProps = (state) => {
-  return {
-    order: state.totalOrder
-  }
-}
-export default connect(mapStateToProps)(LifeCycleComp);
+
+export default LifeCycleComp;

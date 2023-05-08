@@ -69,4 +69,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-### `json-server --watch db.json --port 3004` to run Fake Database
+### `npm run json-server` to run Fake API
+
+json-server --watch db.json --port 3004 : to run Fake API Database JSON

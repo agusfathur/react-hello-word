@@ -9,18 +9,32 @@ import YoutubeCompPage from '../Pages/YoutubeCompPage/YoutubeCompPage';
 import DetailPost from '../Pages/BlogPost/DetailPost/DetailPost';
 // style
 import './Home.css';
+import { useState } from 'react';
 
 export const RootContext = createContext();
 const Provider = RootContext.Provider;
 
 const Home = () => {
-  const state = {
-    totalOrder: 5
-  };
+
+  const [state, setState] = useState({
+    totalOrder: 1
+  });
+
+  const dispatch = (action) => {
+    if (action.type === 'PLUS_ORDER') {
+      setState({ totalOrder: state.totalOrder + 1 })
+    }
+    if (action.type === 'MINUS_ORDER' && state.totalOrder > 0) {
+      setState({ totalOrder: state.totalOrder - 1 })
+    }
+  }
   return (
     <>
       <Router>
-        <Provider value={state}>
+        <Provider value={{
+          state: state,
+          dispatch: dispatch
+        }}>
 
           <nav>
             <div className='Navigation'>

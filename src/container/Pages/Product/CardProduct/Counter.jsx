@@ -1,11 +1,10 @@
-import { Component } from "react";
-// Redux
+
 // import { connect } from "react-redux";
 // import ActionType from "../../../../redux/reducer/globalActionType";
 
 // Contex Api
 import { RootContext } from "../../../Home/Home";
-class Counter extends Component {
+const Counter = () => {
   // state = {
   //   order: 4
   // }
@@ -34,23 +33,21 @@ class Counter extends Component {
   //     })
   //   }
   // }
-  render() {
-    return (
-      <RootContext.Consumer>
-        {
-          value => {
-            return (
-              <div className="counter">
-                <button className="minus" onClick={() => null}>-</button>
-                <input type="text" value={value.totalOrder} />
-                <button className="plus" onClick={() => null}>+</button>
-              </div>
-            )
-          }
+  return (
+    <RootContext.Consumer>
+      {
+        value => {
+          return (
+            <div className="counter">
+              <button className="minus" onClick={() => value.dispatch({ type: 'MINUS_ORDER' })}>-</button>
+              <input type="text" value={value.state.totalOrder} />
+              <button className="plus" onClick={() => value.dispatch({ type: 'PLUS_ORDER' })}>+</button>
+            </div>
+          )
         }
-      </RootContext.Consumer>
-    )
-  }
+      }
+    </RootContext.Consumer>
+  )
 }
 
 

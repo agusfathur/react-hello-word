@@ -4,6 +4,8 @@ import CardProduct from './CardProduct/CardProduct';
 import './Product.css';
 // Redux
 // import { connect } from "react-redux";
+// Context API
+import { RootContext } from "../../Home/Home";
 
 class Product extends Component {
   // state = {
@@ -18,20 +20,28 @@ class Product extends Component {
 
   render() {
     return (
-      <Fragment>
-        <p>Halaman Product</p>
-        <hr />
-        <div className="header">
-          <div className="logo">
-            <h2 className="logo-text">Etanee</h2>
-          </div>
-          <div className="troley">
-            <img src={logo} alt="" />
-            <div className="count">{0}</div>
-          </div>
-        </div>
-        <CardProduct />
-      </Fragment>
+      <RootContext.Consumer>
+        {
+          value => {
+            return (
+              <Fragment>
+                <p>Halaman Product</p>
+                <hr />
+                <div className="header">
+                  <div className="logo">
+                    <h2 className="logo-text">Etanee</h2>
+                  </div>
+                  <div className="troley">
+                    <img src={logo} alt="" />
+                    <div className="count">{value.state.totalOrder}</div>
+                  </div>
+                </div>
+                <CardProduct />
+              </Fragment>
+            )
+          }
+        }
+      </RootContext.Consumer>
     )
   }
 };

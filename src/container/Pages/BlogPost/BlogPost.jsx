@@ -22,10 +22,8 @@ const BlogPost = () => {
 
   }
 
-  const postData = () => {
-    axios.post('http://localhost:3004/posts', formData)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+  const postData = async () => {
+    const res = await API.PostNewBlog(formData);
     setFormData({
       id: 1,
       title: '',

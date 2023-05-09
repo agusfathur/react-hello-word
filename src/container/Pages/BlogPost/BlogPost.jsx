@@ -3,6 +3,7 @@ import { Post } from "../../../component/Post/Post"
 import { useEffect, useState } from "react"
 import './BlogPost.css'
 import { useNavigate } from "react-router"
+import API from "../../../services"
 
 const BlogPost = () => {
   const navigate = useNavigate();
@@ -16,10 +17,8 @@ const BlogPost = () => {
   const [isUpdate, setIsUpdate] = useState(false);
 
   const getPost = async () => {
-    // axios.get('http://localhost:3004/posts?_sort=id&_order=desc')
-    //   .then((results) => setPosts(results.data));
-    const res = await axios.get('http://localhost:3004/posts?_sort=id&_order=desc')
-    setPosts(res.data)
+    const res = await API.getNewsBlog();
+    setPosts(res);
 
   }
 

@@ -1,4 +1,3 @@
-import axios from "axios"
 import { Post } from "../../../component/Post/Post"
 import { useEffect, useState } from "react"
 import './BlogPost.css'
@@ -22,8 +21,8 @@ const BlogPost = () => {
 
   }
 
-  const postData = async () => {
-    const res = await API.PostNewBlog(formData);
+  const postData = () => {
+    API.PostNewBlog(formData);
     setFormData({
       id: 1,
       title: '',
@@ -33,10 +32,7 @@ const BlogPost = () => {
   }
 
   const putData = (data) => {
-    axios.put(`http://localhost:3004/posts/${data}`, formData)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
-
+    API.UpdateNewsBlog(formData, data)
     setIsUpdate(!isUpdate)
     setFormData({
       id: 1,
@@ -44,9 +40,10 @@ const BlogPost = () => {
       body: '',
       userId: 1
     })
+    getPost()
   }
-  const handleRemove = (data) => {
-    axios.delete(`http://localhost:3004/posts/${data}`).then(getPost())
+  const handleRemove = async (data) => {
+    await API.DeleteNewsBlog(data).then(() => getPost())
   }
 
   const handleUpdate = (data) => {

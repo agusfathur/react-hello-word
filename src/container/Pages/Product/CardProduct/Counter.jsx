@@ -34,7 +34,7 @@ const Counter = (props) => {
   //     })
   //   }
   // }
-  console.log(props);
+
   return (
     <div className="counter">
       <button className="minus" onClick={() => props.dispatch({ type: 'MINUS_ORDER' })}>-</button>

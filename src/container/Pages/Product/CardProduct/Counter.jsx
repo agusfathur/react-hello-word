@@ -3,8 +3,9 @@
 // import ActionType from "../../../../redux/reducer/globalActionType";
 
 // Contex Api
-import { RootContext } from "../../../Home/Home";
-const Counter = () => {
+import { GlobalConsumer } from "../../../../context/context";
+
+const Counter = (props) => {
   // state = {
   //   order: 4
   // }
@@ -33,20 +34,13 @@ const Counter = () => {
   //     })
   //   }
   // }
+  console.log(props);
   return (
-    <RootContext.Consumer>
-      {
-        value => {
-          return (
-            <div className="counter">
-              <button className="minus" onClick={() => value.dispatch({ type: 'MINUS_ORDER' })}>-</button>
-              <input type="text" value={value.state.totalOrder} />
-              <button className="plus" onClick={() => value.dispatch({ type: 'PLUS_ORDER' })}>+</button>
-            </div>
-          )
-        }
-      }
-    </RootContext.Consumer>
+    <div className="counter">
+      <button className="minus" onClick={() => props.dispatch({ type: 'MINUS_ORDER' })}>-</button>
+      <input type="text" value={props.state.totalOrder} />
+      <button className="plus" onClick={() => props.dispatch({ type: 'PLUS_ORDER' })}>+</button>
+    </div>
   )
 }
 
@@ -64,4 +58,4 @@ const Counter = () => {
 //   }
 // }
 // export default connect(mapStateToProps, mapDispatchToProps)(Counter);
-export default Counter;
+export default GlobalConsumer(Counter);

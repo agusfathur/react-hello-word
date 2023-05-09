@@ -5,7 +5,7 @@ import './Product.css';
 // Redux
 // import { connect } from "react-redux";
 // Context API
-import { RootContext } from "../../Home/Home";
+import { GlobalConsumer } from "../../../context/context";
 
 class Product extends Component {
   // state = {
@@ -19,29 +19,22 @@ class Product extends Component {
   // }
 
   render() {
+    // console.log(this);
     return (
-      <RootContext.Consumer>
-        {
-          value => {
-            return (
-              <Fragment>
-                <p>Halaman Product</p>
-                <hr />
-                <div className="header">
-                  <div className="logo">
-                    <h2 className="logo-text">Etanee</h2>
-                  </div>
-                  <div className="troley">
-                    <img src={logo} alt="" />
-                    <div className="count">{value.state.totalOrder}</div>
-                  </div>
-                </div>
-                <CardProduct />
-              </Fragment>
-            )
-          }
-        }
-      </RootContext.Consumer>
+      <Fragment>
+        <p>Halaman Product</p>
+        <hr />
+        <div className="header">
+          <div className="logo">
+            <h2 className="logo-text">Etanee</h2>
+          </div>
+          <div className="troley">
+            <img src={logo} alt="" />
+            <div className="count">{this.props.state.totalOrder}</div>
+          </div>
+        </div>
+        <CardProduct />
+      </Fragment>
     )
   }
 };
@@ -53,4 +46,4 @@ class Product extends Component {
 // }
 // export default connect(mapStateToProps)(Product);
 
-export default Product;
+export default GlobalConsumer(Product);

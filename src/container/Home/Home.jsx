@@ -1,6 +1,5 @@
 // libraries
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
-import { createContext } from 'react';
 // pages
 import LifeCycleComp from "../Pages/LifeCycleComp/LifeCycleComp";
 import BlogPost from "../Pages/BlogPost/BlogPost";
@@ -8,8 +7,8 @@ import Product from '../Pages/Product/Product';
 import YoutubeCompPage from '../Pages/YoutubeCompPage/YoutubeCompPage';
 import DetailPost from '../Pages/BlogPost/DetailPost/DetailPost';
 // style
+
 import './Home.css';
-import { useState } from 'react';
 import GlobalProvider from '../../context/context';
 
 
